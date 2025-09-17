@@ -16,6 +16,8 @@ public class DemoController {
                    <head><title>Demo</title></head>
                    <body>
                        <h1>Hello, this is HTML Page returned from a controller</h1>
+                       
+                       <h2>Working<h2>
                    </body>
                </html>
                """;
