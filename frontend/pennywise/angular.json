@@ -9,6 +9,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "standalone": true,
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -63,7 +64,10 @@
             },
             "development": {
               "buildTarget": "pennywise:build:development"
-            }
+            },
+            "options": {
+              "port": 4000
+        }
           },
           "defaultConfiguration": "development"
         },

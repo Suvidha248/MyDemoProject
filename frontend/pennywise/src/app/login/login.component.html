@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo">PennyWise</div>
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label for="email">Email</label>
+      <input formControlName="email" type="email" id="email" placeholder="name@example.com" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+        Valid email is required
+      </div>
+
+      <label for="password" class="password-label">
+        Password
+        <a routerLink="#" class="forgot-password">Forgot your password?</a>
+      </label>
+
+      <div class="password-input-wrapper" style="position: relative;">
+        <input
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          id="password"
+          placeholder="Your password"
+          style="padding-right: 40px;"
+        />
+        <button
+          type="button"
+          class="toggle-password-btn"
+          (click)="togglePasswordVisibility()"
+          aria-label="Toggle password visibility"
+          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 18px;"
+        >
+          <span *ngIf="hidePassword">&#128065;</span>  <!-- Eye symbol -->
+          <span *ngIf="!hidePassword">&#128068;</span> <!-- Crossed eye symbol -->
+        </button>
+      </div>
+
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+        Password is required
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid" class="login-btn">Login</button>
+    </form>
+
+    <hr />
+    <div class="or-cont">OR CONTINUE WITH</div>
+
+    <div class="social-login-buttons">
+      <button><i class="fab fa-google"></i> Google</button>
+      <button><i class="fab fa-facebook-f"></i> Facebook</button>
+      <button><i class="fab fa-twitter"></i> Twitter</button>
+      <button><i class="fab fa-github"></i> GitHub</button>
+    </div>
+
+    <div class="signup-prompt">
+      Don't have an account? <a routerLink="#">Sign up</a>
+    </div>
+  </div>
+</div>
